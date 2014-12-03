@@ -7,7 +7,7 @@ local URL="http://sourceforge.net/projects/e2fsprogs/files/e2fsprogs/v${VERSION}
 
 _download_tgz "${FILE}" "${URL}" "${FOLDER}"
 pushd target/"${FOLDER}"
-./configure --host="${HOST}" --prefix="${DEST}" --mandir="${DEST}/man" --disable-elf-shlibs
+./configure --host="${HOST}" --prefix="${DEST}" --mandir="${DEST}/man" --disable-elf-shlibs --disable-defrag
 make
 make install
 popd
