@@ -1,12 +1,11 @@
 ### E2FSPROGS ###
 _build_e2fsprogs() {
-local VERSION="1.42.13"
-local FOLDER="e2fsprogs-${VERSION}"
-local FILE="${FOLDER}.tar.gz"
-local URL="http://sourceforge.net/projects/e2fsprogs/files/e2fsprogs/v${VERSION}/${FILE}"
+local BRANCH="master"
+local FOLDER="e2fsprogs"
+local URL="https://git.kernel.org/pub/scm/fs/ext2/e2fsprogs.git"
 
-_download_tgz "${FILE}" "${URL}" "${FOLDER}"
-pushd target/"${FOLDER}"
+_download_git "${BRANCH}" "${FOLDER}" "${URL}"
+pushd "target/${FOLDER}"
 ./configure --host="${HOST}" --prefix="${DEST}" --mandir="${DEST}/man" --disable-elf-shlibs
 make
 make install
